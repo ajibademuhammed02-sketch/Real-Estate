@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuxeHome Contact</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- HEADER NAVBAR -->
+  <header class="site-header">
+  <div class="header-container">
+    
+    <!-- Brand Logo -->
+    <a href="index.html" class="logo">
+      <img src="image/my_logo-removebg-preview.png" alt="LuxeHome Logo">
+      <h1>Luxe<span>Home</span></h1>
+    </a>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="properties.html" class="nav-link">Properties</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="favorites.html" class="nav-link">Favorites</a></li>
+      </ul>
+    </nav>
+
+    <!-- Header Action Button -->
+    <div class="header-action">
+      <a href="contact.html" class="btn-book">
+        Book Now <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+  </div>
+</header>
+  <!-- CONTACT HERO BANNER -->
+  <section class="contact-hero">
+    <h1>Get In Touch With Us</h1>
+    <p>Have questions about a property or our services? Our team is here to help you every step of the way.</p>
+  </section>
+
+  <!-- MAIN CONTACT SECTION -->
+  <section class="contact-section">
+    <div class="contact-container">
+      
+      <!-- Left: Contact Details Card -->
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <p>Reach out directly or visit our headquarters.</p>
+        
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>Office Address</strong>
+            <p>123 Real Estate Avenue, Suite 400</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <strong>Phone Number</strong>
+            <p>+234 (811) 864-2137</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <strong>Email Address</strong>
+            <p>support@LuxeHome Real estate.com</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-clock"></i>
+          <div>
+            <strong>Working Hours</strong>
+            <p>Mon - Sat: 8:00 AM - 6:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contact Form -->
+<div class="contact-form-wrapper">
+  <h3>Send Us A Message</h3>
+  <form id="contactForm" class="contact-form" novalidate>
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" placeholder="Bilal">
+      <small class="error-msg" id="nameError"></small>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Muhammed@example.com">
+      <small class="error-msg" id="emailError"></small>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Service / Inquiry Type</label>
+      <select id="subject">
+        <option value="general">General Inquiry</option>
+        <option value="sales">Property Sales</option>
+        <option value="rentals">Property Rentals</option>
+        <option value="management">Property Management</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Your Message</label>
+      <textarea id="message" rows="5" placeholder="Tell us how we can help..."></textarea>
+      <small class="error-msg" id="messageError"></small>
+    </div>
+
+    <button type="submit" class="btn-submit">Send Message</button>
+  </form>
+</div>
+
+<!-- Toast Notification Container -->
+<div id="toast" class="toast">Message sent successfully!</div>
+  </section>
+
+<!-- FOOTER SECTION -->
+<footer class="site-footer">
+  <div class="footer-container">
+    
+    <!-- Column 1: Brand & Bio -->
+    <div class="footer-col">
+      <a href="index.html" class="logo">
+        <img src="image/my_logo-removebg-preview.png" alt="HomeUnik Logo">
+        <h1>Luxe<span>Home</span></h1>
+      </a>
+      <p>Providing premium residential and commercial properties tailored to your luxury lifestyle and budget.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <!-- Column 2: Quick Links -->
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Property Types -->
+    <div class="footer-col">
+      <h3>Property Types</h3>
+      <ul>
+        <li><a href="properties.html">Beautiful Villas</a></li>
+        <li><a href="properties.html">Luxury Apartments</a></li>
+        <li><a href="properties.html">Modern homes</a></li>
+        <li><a href="properties.html">Sunset Ridges</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Contact Info -->
+    <div class="footer-col">
+      <h3>Get In Touch</h3>
+      <p><i class="fas fa-map-marker-alt"></i> 100 Fifth Avenue, New York, NY</p>
+      <p><i class="fas fa-phone-alt"></i> +234 (8118642137) </p>
+      <p><i class="fas fa-envelope"></i> contact@LuxeHome.com</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 LuxeHome Real Estate. All rights reserved.</p>
+  </div>
+</footer>
+
+
+  <script src="js/app.js"></script>
+</body>
+</html>

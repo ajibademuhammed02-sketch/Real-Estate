@@ -1,0 +1,28 @@
+/* ==========================================
+   MOBILE RESPONSIVE NAVIGATION
+   ========================================== */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .nav-links ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .property-grid,
+  .services-grid {
+    grid-template-columns: 1fr !important; /* Stack cards vertically */
+    gap: 20px;
+  }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeHome | Favorites</title>
+    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<!-- HEADER NAVBAR -->
+  <header class="site-header">
+  <div class="header-container">
+    
+    <!-- Brand Logo -->
+    <a href="index.html" class="logo">
+      <img src="image/my_logo-removebg-preview.png" alt="LuxeHome Logo">
+      <h1>Luxe<span>Home</span></h1>
+    </a>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="properties.html" class="nav-link">Properties</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="favorites.html" class="nav-link active">Favorites</a></li>
+      </ul>
+    </nav>
+
+    <!-- Header Action Button -->
+    <div class="header-action">
+      <a href="contact.html" class="btn-book">
+        Book Now <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+  </div>
+</header>
+
+<section class="properties-section">
+  <div class="container">
+    <!-- ALWAYS VISIBLE TITLE -->
+    <h2 class="section-title">Your Favorited Properties</h2>
+
+    <!-- Grid where favorited cards populate -->
+    <div class="properties-grid" id="favorites-grid"></div>
+
+    <!-- Empty state container (shown when storage is empty) -->
+    <div id="no-favorites" class="no-favorites-box" style="display: none;">
+      <i class="far fa-heart empty-heart-icon"></i>
+      <h3>No saved properties yet</h3>
+      <p>Click the heart icon on any property card to save it for later.</p>
+      <a href="properties.html" class="btn-explore">Browse Properties</a>
+    </div>
+  </div>
+</section>
+    
+   
+  <!-- FOOTER SECTION -->
+<footer class="site-footer">
+  <div class="footer-container">
+    
+    <!-- Column 1: Brand & Bio -->
+    <div class="footer-col">
+      <a href="index.html" class="logo">
+        <img src="image/my_logo-removebg-preview.png" alt="HomeUnik Logo">
+        <h1>Luxe<span>Home</span></h1>
+      </a>
+      <p>Providing premium residential and commercial properties tailored to your luxury lifestyle and budget.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <!-- Column 2: Quick Links -->
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Property Types -->
+    <div class="footer-col">
+      <h3>Property Types</h3>
+      <ul>
+        <li><a href="properties.html">Beautiful Villas</a></li>
+        <li><a href="properties.html">luxury Apartments</a></li>
+        <li><a href="properties.html">Modern Homes</a></li>
+        <li><a href="properties.html">Sunset Ridges</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Contact Info -->
+    <div class="footer-col">
+      <h3>Get In Touch</h3>
+      <p><i class="fas fa-map-marker-alt"></i> 100 Fifth Avenue, New York, NY</p>
+      <p><i class="fas fa-phone-alt"></i> +234 (8118642137) </p>
+      <p><i class="fas fa-envelope"></i> contact@LuxeHome.com</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 LuxeHome Real Estate. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- PROPERTY DETAILS MODAL -->
+<div id="property-modal" class="modal-overlay" style="display: none;">
+  <div class="modal-content">
+    <button type="button" class="modal-close" id="close-modal">&times;</button>
+    <div class="modal-body">
+      <div class="modal-image-box">
+        <img id="modal-img" src="" alt="Property Image">
+      </div>
+      <div class="modal-info">
+        <span id="modal-badge" class="badge"></span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-location" class="modal-location"><i class="fas fa-map-marker-alt"></i> <span></span></p>
+        <div id="modal-price" class="modal-price"></div>
+        <div class="modal-specs-grid">
+          <div><i class="fas fa-bed"></i> <span id="modal-beds"></span></div>
+          <div><i class="fas fa-bath"></i> <span id="modal-baths"></span></div>
+          <div><i class="fas fa-ruler-combined"></i> <span id="modal-sqft"></span></div>
+        </div>
+        <p class="modal-description">
+          This premium real estate listing features modern finishes, ample natural lighting, and prime access to local amenities. Contact an agent today to schedule a private tour.
+        </p>
+        <a href="contact.html" class="btn-explore" style="display: block; text-align: center; text-decoration: none;">Contact Agent</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="js/app.js"></script>
+</body>
+</html>
