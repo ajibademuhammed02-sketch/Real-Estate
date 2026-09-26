@@ -367,39 +367,41 @@ img, video, iframe {
     color: #007bff;
   }
 }
-  /* Hamburger Icon Styling & Active 'X' Animation */
+
+@media (max-width: 768px) {
   .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
-    z-index: 1002;
-    background: transparent;
-    border: none;
-    padding: 0;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 30px !important;
+    height: 22px !important;
+    background: transparent !important; /* No background box */
+    border-top: 3px solid #ff4500 !important;    /* Top line */
+    border-bottom: 3px solid #ff4500 !important; /* Bottom line */
+    border-left: none !important;
+    border-right: none !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    z-index: 1002 !important;
+    position: relative !important;
   }
 
-  .hamburger .bar {
+  /* Middle line */
+  .hamburger::after {
+    content: '';
+    display: block;
     width: 100%;
     height: 3px;
-    background-color: #222;
-    border-radius: 3px;
-    transition: all 0.3s ease-in-out;
+    background-color: #ff4500 !important; /* Middle line */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 2px;
   }
 
-  /* Turn 3 bars into an 'X' when menu is open */
-  .hamburger.active .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-  }
-
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+  /* Hide inner span bars since the button container IS the 3 lines now */
+  .hamburger .bar {
+    display: none !important;
   }
 }
 
@@ -435,27 +437,6 @@ html, body {
 @media screen and (max-width: 768px) {
   .header-action {
     display: none !important; /* Hide desktop Book Now button on phone */
-  }
-
-  .hamburger {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    width: 28px !important;
-    height: 20px !important;
-    background: transparent !important;
-    border: none !important;
-    cursor: pointer !important;
-    padding: 0 !important;
-    z-index: 1002 !important;
-  }
-
-  .hamburger .bar {
-    width: 100% !important;
-    height: 3px !important;
-    background-color: #222 !important;
-    border-radius: 2px !important;
-    transition: all 0.3s ease !important;
   }
 
   /* Shrink large headlines on phone screens so they don't get cut off */
@@ -516,5 +497,13 @@ html, body {
   .floating-search-container button {
     width: 100% !important;
     box-sizing: border-box !important;
+  }
+}
+
+/* Mobile Layout: Stacks all 4 cards vertically on phones */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr; /* Displays 1 card per row */
+    gap: 16px;
   }
 }
