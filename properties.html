@@ -12,8 +12,8 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
+  <!--  HEADER NAVBAR -->
+<header class="site-header">
   <div class="header-container">
     
     <!-- Brand Logo -->
@@ -26,26 +26,27 @@
     <nav class="navbar">
       <ul class="nav-menu">
         <li><a href="index.html" class="nav-link">Home</a></li>
-<li><a href="properties.html" class="nav-link active">Properties</a></li>
-<li><a href="services.html" class="nav-link">Services</a></li>
-<li><a href="contact.html" class="nav-link">Contact</a></li>
-<li><a href="about.html" class="nav-link">About Us</a></li>
-<li><a href="favorites.html" class="nav-link">Favorites</a></li>
+        <li><a href="properties.html" class="nav-link active">Properties</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="favorites.html" class="nav-link">Favorites</a></li>
+      </ul>
     </nav>
 
-    <!-- Header Action Button -->
+    <!-- Header Action Button  -->
     <div class="header-action">
       <a href="contact.html" class="btn-book">
         Book Now <i class="fas fa-arrow-right"></i>
       </a>
     </div>
 
-    <!-- Mobile Menu Button -->
-    <div class="hamburger">
+    <!-- Mobile Hamburger Button -->
+    <button type="button" class="hamburger" aria-label="Toggle Navigation Menu">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
-    </div>
+    </button>
 
   </div>
 </header>
@@ -492,38 +493,38 @@
 
         <hr class="form-divider">
 
-        <form class="modal-inquiry-form" onsubmit="event.preventDefault(); alert('Inquiry sent successfully!');">
-          <h4>Book a Tour / Inquiry</h4>
-          
-          <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" placeholder="Bilal Muhammed" required>
-          </div>
+        <form class="modal-inquiry-form" action="https://formspree.io/f/xyezdvrp" method="POST">
+  <h4>Book a Tour / Inquiry</h4>
+  
+  <div class="form-group">
+    <label>Full Name</label>
+    <input type="text" name="fullName" placeholder="Bilal Muhammed" required>
+  </div>
 
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" placeholder="Bilal@example.com" required>
-          </div>
+  <div class="form-group">
+    <label>Email Address</label>
+    <input type="email" name="email" placeholder="Bilal@example.com" required>
+  </div>
 
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" placeholder="+1 (555) 000-0000" required>
-          </div>
+  <div class="form-group">
+    <label>Phone Number</label>
+    <input type="tel" name="phone" placeholder="+1 (555) 000-0000" required>
+  </div>
 
-          <div class="form-group">
-            <label>Preferred Date</label>
-            <input type="date" required>
-          </div>
+  <div class="form-group">
+    <label>Preferred Date</label>
+    <input type="date" name="preferredDate" required>
+  </div>
 
-          <div class="form-group">
-            <label>Message</label>
-            <textarea rows="3" placeholder="I am interested in this property..."></textarea>
-          </div>
+  <div class="form-group">
+    <label>Message</label>
+    <textarea name="message" rows="3" placeholder="I am interested in this property..."></textarea>
+  </div>
 
-          <button type="submit" class="btn-submit-modal">
-            Send Inquiry <i class="fas fa-paper-plane"></i>
-          </button>
-        </form>
+  <button type="submit" class="btn-submit-modal">
+    Send Inquiry <i class="fas fa-paper-plane"></i>
+  </button>
+</form>
       </div>
 
     </div>

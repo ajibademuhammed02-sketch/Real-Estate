@@ -787,3 +787,104 @@ if (priceSlider && priceValueDisplay) {
   updateSliderTrack(priceSlider);
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navbar = document.querySelector('.navbar');
+
+  if (hamburger && navbar) {
+    hamburger.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+  }
+});
+
+/* ==========================================================================
+   MOBILE MENU OPEN & CLOSE TOGGLE
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navbar = document.querySelector('.navbar');
+
+  // Create dark overlay dynamically if not in HTML
+  let overlay = document.querySelector('.menu-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'menu-overlay';
+    document.body.appendChild(overlay);
+  }
+
+  function toggleMenu() {
+    const isOpen = navbar.classList.toggle('active');
+    hamburger.classList.toggle('active', isOpen);
+    overlay.classList.toggle('active', isOpen);
+
+    // Prevent body background scrolling when menu is open
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  function closeMenu() {
+    navbar.classList.remove('active');
+    hamburger.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (hamburger && navbar) {
+    // Tap hamburger to open / close
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Tap outside overlay to close
+    overlay.addEventListener('click', closeMenu);
+
+    // Close menu when tapping any page link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
+});
+
+/* ==========================================================================
+   FORMSPREE AJAX SUBMISSION
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const setupFormSubmission = (form) => {
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending...';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          alert('Message sent successfully! We will get back to you shortly.');
+          form.reset();
+        } else {
+          alert('Oops! There was a problem sending your message.');
+        }
+      } catch (error) {
+        alert('Network error. Please try again later.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+    });
+  };
+
+  setupFormSubmission(document.getElementById('contactForm'));
+  setupFormSubmission(document.querySelector('.modal-inquiry-form'));
+});
+
