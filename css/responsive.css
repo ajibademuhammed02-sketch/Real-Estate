@@ -500,10 +500,10 @@ html, body {
   }
 }
 
-/* Mobile Layout: Stacks all 4 cards vertically on phones */
+
 @media (max-width: 768px) {
   .features-grid {
-    grid-template-columns: 1fr; /* Displays 1 card per row */
+    grid-template-columns: 1fr; 
     gap: 16px;
   }
 }

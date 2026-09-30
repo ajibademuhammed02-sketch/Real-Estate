@@ -35,25 +35,62 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================
-  // 3. HEART ICON FAVORITE TOGGLE
-  // ==========================================
-  const heartIcons = document.querySelectorAll(".heart-icon, .fa-heart");
+// 3. HEART ICON FAVORITE TOGGLE & LOCALSTORAGE
+// ==========================================
+const heartIcons = document.querySelectorAll(".heart-icon, .fa-heart");
 
-  heartIcons.forEach(icon => {
-    icon.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation(); // Prevents clicking card link
+heartIcons.forEach(icon => {
+  icon.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation(); // Prevents clicking card link
+    
+    icon.classList.toggle("favorited");
+    
+    // Find the parent property card holding the image and details
+    const card = icon.closest(".property-card") || icon.closest(".card");
+    
+    // Retrieve existing favorites from localStorage
+    let favorites = JSON.parse(localStorage.getItem("myFavorites")) || [];
+    
+    if (card) {
+      // Get the image element inside the card
+      const imgElement = card.querySelector("img");
       
-      icon.classList.toggle("favorited");
+      // Get image source (uses .src for complete absolute URL needed on mobile)
+      const imageSrc = imgElement ? imgElement.src : "";
       
+      // Extract title/name to serve as unique ID
+      const titleElement = card.querySelector(".property-title, h3, h4");
+      const titleText = titleElement ? titleElement.textContent.trim() : "Property";
+
       if (icon.classList.contains("favorited")) {
-        icon.style.color = "#ff385c"; // Heart turns red when favorited
+        icon.style.color = "#ff385c"; // Heart turns red
+        
+        // Build the property object
+        const propertyData = {
+          id: titleText,
+          title: titleText,
+          image: imageSrc, // Full URL saved here
+          location: card.querySelector(".property-location, .location")?.textContent.trim() || "",
+          price: card.querySelector(".property-price, .price")?.textContent.trim() || ""
+        };
+
+        // Add to array if not already present
+        if (!favorites.some(item => item.id === propertyData.id)) {
+          favorites.push(propertyData);
+        }
       } else {
         icon.style.color = ""; // Resets to default CSS color
+        
+        // Remove from favorites array when un-favorited
+        favorites = favorites.filter(item => item.id !== titleText);
       }
-    });
-  });
 
+      // Save updated array back to localStorage
+      localStorage.setItem("myFavorites", JSON.stringify(favorites));
+    }
+  });
+});
   /* ==========================================================================
      3. FAVORITES SYSTEM (LOCAL STORAGE)
      ========================================================================== */
